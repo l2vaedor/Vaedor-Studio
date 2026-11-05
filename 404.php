@@ -9,7 +9,7 @@ get_header();
 ?>
 <main id="main-content" tabindex="-1" class="main">
 	<div class="content">
-		<section class="section section--content">
+		<section class="section">
 			<div class="shell">
 				<div class="section__head">
 					<p class="section__eyebrow"><?php esc_html_e( 'Error 404', 'vaedor-theme' ); ?></p>

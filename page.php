@@ -11,7 +11,6 @@ get_header();
 ?>
 <main id="main-content" tabindex="-1" class="<?php echo esc_attr( vaedor_get_main_classes( $vaedor_has_sidebar ) ); ?>">
 	<div class="content">
-		!!!
 		<?php
 		while ( have_posts() ) :
 			the_post();

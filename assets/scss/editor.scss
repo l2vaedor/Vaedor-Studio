@@ -1,20 +1,8 @@
-// Content styling only; site header/navigation/footer are not editor UI.
+// Content styling only; site header, navigation and footer are not editor UI.
 @use 'base/root';
 @use 'base/base';
+@use 'layout/section';
 @use 'components/button';
 @use 'components/forms';
 @use 'components/card';
-@use 'layout/section';
-@use 'sections/hero';
-@use 'sections/content';
-@use 'sections/cards';
-@use 'sections/media';
-@use 'sections/cta';
-@use 'sections/faq';
-@use 'sections/contact';
-@use 'sections/posts';
 @use 'gutenberg/blocks';
-.editor-styles-wrapper { padding-inline: var(--page-padding); }
-.editor-styles-wrapper .wp-block { max-width: var(--content-width); }
-.editor-styles-wrapper .wp-block[data-align="wide"] { max-width: var(--shell-width); }
-.editor-styles-wrapper .wp-block[data-align="full"] { max-width: none; }

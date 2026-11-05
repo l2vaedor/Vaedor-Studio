@@ -1,20 +1,8 @@
-// Retain core block layout CSS; theme adds only visual defaults.
+// Core blocks keep their own layout CSS (and theme.json blockGap); only visual defaults here.
 :where(.wp-block-image img, .wp-block-gallery img, .wp-block-media-text__media img) { border-radius: var(--radius-sm); }
 :where(figcaption, .wp-element-caption) { margin-block-start: var(--space-xs); color: var(--secondary-text-color); font-size: var(--font-size-sm); }
-:where(.wp-block-quote, .wp-block-pullquote) { border-color: var(--border-color); }
-:where(.wp-block-quote p + p) { margin-block-start: var(--space-sm); }
-:where(table) { width: 100%; border-collapse: collapse; }
-:where(th, td) { padding: 0.75rem; border: 1px solid var(--border-color); text-align: start; }
+:where(.wp-block-quote, .wp-block-pullquote, .wp-block-separator) { border-color: var(--border-color); }
 :where(th) { background: var(--secondary-background-color); }
 .wp-block-table { overflow-x: auto; }
-:where(.wp-block-separator) { border-color: var(--border-color); }
-:where(.wp-block-columns) { gap: var(--space-lg); }
 :where(.wp-block-column) { min-width: 0; }
-:where(.wp-block-group, .wp-block-column, .wp-block-media-text__content) > * + * { margin-block-start: var(--space-md); }
-:where(.wp-block-embed iframe) { max-width: 100%; }
 :where(.wp-block-cover) { border-radius: var(--radius-sm); }
-:where(.wp-block-cover__inner-container) { overflow-wrap: break-word; }
-.wp-block-button.is-style-outline > .wp-block-button__link { background: transparent; color: var(--accent-color); border: 1px solid currentColor; }
-.wp-block-button.is-style-outline > .wp-block-button__link:hover { background: var(--secondary-accent-color); color: var(--on-accent-color); }
-
-:where(.wp-block-image,.wp-block-gallery){max-width:100%}:where(.wp-block-gallery){gap:var(--grid-gap)}

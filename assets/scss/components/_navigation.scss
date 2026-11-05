@@ -1,92 +1,82 @@
-.navigation--primary {
-	width: 100%;
-	order: 4;
-}
+// Mobile first: the primary menu is a full-width list toggled by navigation.js.
+.navigation--primary { width: 100%; order: 4; }
 
 .menu {
 	display: flex;
 	padding: 0;
 	margin: 0;
 	list-style: none;
+
+	&__item { margin: 0; }
+	&__link:focus-visible { outline-offset: -3px; }
+
+	&--primary {
+		flex-direction: column;
+		padding-block: var(--space-sm);
+		border-block-start: var(--line);
+	}
+
+	&--primary .sub-menu {
+		display: flex;
+		flex-direction: column;
+		padding-inline-start: var(--space-md);
+		margin: 0;
+		list-style: none;
+	}
+
+	&--primary a,
+	&--footer a {
+		display: block;
+		padding-block: 0.625rem;
+		color: var(--text-color);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	&--primary a:hover,
+	&--primary .current-menu-item > a {
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-underline-offset: 0.3em;
+	}
+
+	&--footer { flex-wrap: wrap; gap: var(--space-xs) var(--space-md); }
 }
 
-.menu--primary {
-	flex-direction: column;
-	padding-block: var(--space-sm);
-	border-top: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color));
-}
-
-.menu--primary .sub-menu {
-	display: flex;
-	margin: 0;
-	flex-direction: column;
-	padding-inline-start: var(--space-md);
-	list-style: none;
-}
-
-.menu--primary a,
-.menu--footer a {
-	display: block;
-	padding: 0.625rem 0;
-	color: var(--text-color);
-	font-size:var(--nav-font-size);font-weight:var(--nav-font-weight);
-	text-decoration: none;
-}
-
-.menu--primary a:hover,
-.menu--primary .current-menu-item > a,
-.menu--primary .current_page_item > a {
-	color: var(--accent-color);
-	text-decoration: underline;
-	text-underline-offset: 0.3em;
-}
-
-.menu--footer {
-	flex-wrap: wrap;
-	gap: var(--space-xs) var(--space-md);
-}
-
-.navigation__label {
-	display: block;
-	color: var(--secondary-text-color);
-	font-size: var(--font-size-sm);
-}
-
-.navigation__title {
-	display: block;
-	font-weight: 700;
-}
-
+// Previous / next post links.
 .post-navigation {
-	width: min(100%, calc(var(--content-width) + (var(--page-padding) * 2)));
+	width: min(100%, calc(var(--content-width) + 2 * var(--page-padding)));
 	padding-inline: var(--page-padding);
 	margin: var(--space-xl) auto;
+
+	.nav-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
+	.nav-next { text-align: end; }
 }
+.navigation__label { display: block; color: var(--secondary-text-color); font-size: var(--font-size-sm); }
+.navigation__title { display: block; font-weight: 700; }
 
-.post-navigation .nav-links {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--space-md);
-}
-
-.post-navigation .nav-next {
-	text-align: end;
-}
-
-
-.menu__item { margin: 0; }
-.menu__link:focus-visible { outline-offset: -3px; }
-.menu--primary .sub-menu .sub-menu { position: static; display: flex; border: 0; padding-inline-start: var(--space-sm); }
 @media (min-width: 64rem) {
 	.navigation--primary { width: auto; order: initial; }
-	.menu--primary { flex-direction: row; align-items: center; gap: var(--nav-gap,var(--space-md)); padding-block: 0; border: 0; }
-	.menu--primary > .menu__item > .menu__link { padding-block: var(--space-sm); }
-	.menu--primary > .menu__item { position: relative; }
-	.menu--primary > .menu__item > .sub-menu {
-		position: absolute; display: none; inset-inline-end: 0; min-width: 14rem;
-		max-width: calc(100vw - 2 * var(--page-padding));
-		padding: var(--space-sm); border: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color)); background: var(--background-color);
+
+	.menu--primary {
+		flex-direction: row;
+		align-items: center;
+		gap: var(--space-lg);
+		padding-block: 0;
+		border: 0;
+
+		> .menu__item { position: relative; }
+
+		> .menu__item > .sub-menu {
+			position: absolute;
+			display: none;
+			inset-inline-end: 0;
+			min-width: 14rem;
+			padding: var(--space-sm);
+			border: var(--line);
+			background: var(--background-color);
+		}
+
+		> .menu__item:is(:hover, :focus-within) > .sub-menu { display: flex; }
 	}
-	.menu--primary > .menu__item:hover > .sub-menu,
-	.menu--primary > .menu__item:focus-within > .sub-menu { display: flex; }
 }

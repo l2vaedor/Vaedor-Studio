@@ -2,6 +2,9 @@
 /**
  * Vaedor Base functions and definitions.
  *
+ * Base stays presentational: design values live in theme.json, a few brand
+ * options live in the Customizer. Anything with business logic belongs in a plugin.
+ *
  * @package Vaedor_Base
  */
 
@@ -15,12 +18,7 @@ $vaedor_includes = array(
 	'/inc/widgets.php',
 	'/inc/enqueue.php',
 	'/inc/template-functions.php',
-	'/inc/sections.php',
-	'/inc/admin/settings-config.php',
-	'/inc/admin/settings-validate.php',
 	'/inc/customizer.php',
-	'/inc/admin/settings-output.php',
-	'/inc/hero-block.php',
 );
 
 foreach ( $vaedor_includes as $vaedor_file ) {

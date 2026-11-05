@@ -8,13 +8,13 @@ get_header();
 ?>
 <main id="main-content" tabindex="-1" class="main">
 	<div class="content">
-		<section class="<?php echo esc_attr( vaedor_base_section_classes( 'posts' ) ); ?>">
+		<section class="section">
 			<div class="shell">
 				<div class="section__head">
 					<h1 class="section__title"><?php echo esc_html( get_option( 'page_for_posts' ) ? get_the_title( (int) get_option( 'page_for_posts' ) ) : __( 'Latest posts', 'vaedor-theme' ) ); ?></h1>
 				</div>
-				<div class="section__body posts">
-					<div class="posts__grid">
+				<div class="section__body">
+					<div class="card-grid">
 						<?php if ( have_posts() ) : ?>
 							<?php while ( have_posts() ) : the_post(); ?>
 								<?php get_template_part( 'template-parts/components/post-card' ); ?>

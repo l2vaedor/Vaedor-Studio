@@ -1,3 +1,0 @@
-.section--content-layout-narrow .section__body { max-width: 42rem; }
-.section--content-layout-centered :is(.section__head, .section__body) { margin-inline: auto; text-align: center; }
-@media (min-width: 48rem) { .section--content-layout-two-columns .section__body { columns: 2; column-gap: var(--space-xl); } }

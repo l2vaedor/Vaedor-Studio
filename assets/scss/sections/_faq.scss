@@ -1,7 +1,0 @@
-.faq { display: grid; gap: var(--space-sm); max-width: var(--content-width); }
-.faq__item { border-block-end: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color)); }
-.faq__question { padding: var(--space-md) 0; font-weight: 700; cursor: pointer; }
-.faq__answer { padding-block-end: var(--space-md); }
-.section--faq-style-bordered .faq__item { padding-inline: var(--space-md); border: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color)); border-radius: var(--radius-md); }
-.section--faq-style-separated .faq__item { padding-inline: var(--space-md); border: 0; border-radius: var(--radius-md); background: var(--secondary-background-color); }
-@media (min-width: 48rem) { .section--faq-columns-2 .faq { max-width: none; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }

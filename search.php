@@ -9,7 +9,7 @@ get_header();
 ?>
 <main id="main-content" tabindex="-1" class="main">
 	<div class="content">
-		<section class="<?php echo esc_attr( vaedor_base_section_classes( 'posts' ) ); ?>">
+		<section class="section">
 			<div class="shell">
 				<div class="section__head">
 					<h1 class="section__title">
@@ -24,7 +24,7 @@ get_header();
 				</div>
 
 				<?php if ( have_posts() ) : ?>
-					<div class="section__body posts"><div class="posts__grid">
+					<div class="section__body"><div class="card-grid">
 						<?php
 						while ( have_posts() ) :
 							the_post();

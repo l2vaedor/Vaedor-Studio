@@ -1,31 +1,47 @@
-.entry { padding-block: clamp(var(--space-xl), 6vw, var(--space-2xl)); }
-.entry__header { max-width: var(--content-width); margin-block-end: var(--space-lg); }
-.entry__meta { margin-block-end: var(--space-xs); color: var(--secondary-text-color); font-size: var(--font-size-sm); }
-.entry__media { margin-block-end: var(--space-lg); }
-.entry__image { width: 100%; border-radius: var(--radius-md); }
-.entry__content { width: 100%; }
-.entry__content > :not(.alignwide, .alignfull) { max-width: var(--content-width); margin-inline: auto; }
-.entry__content > .alignwide, .entry__content > .alignfull { width: 100%; max-width: 100%; }
-// Full alignment stays inside the shell: safe for sidebars, RTL and scrollbar widths.
-.entry__content > * + *, .entry > * + * { margin-block-start: var(--space-md); }
-.entry__content > :is(h2, h3, h4) { margin-block-start: var(--space-xl); }
-.entry__header, .entry__media { margin-inline: auto; max-width: var(--content-width); }
-.pagination, .pagination .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-xs); }
+.entry {
+	padding-block: var(--space-2xl);
+
+	&__header,
+	&__media { max-width: var(--content-width); margin-inline: auto; margin-block-end: var(--space-lg); }
+	&__meta { margin-block-end: var(--space-xs); color: var(--secondary-text-color); font-size: var(--font-size-sm); }
+	&__image { width: 100%; border-radius: var(--radius-md); }
+
+	// Readable column; wide/full blocks break out up to the shell width.
+	&__content > :not(.alignwide, .alignfull) { max-width: var(--content-width); margin-inline: auto; }
+	&__content > :is(.alignwide, .alignfull) { width: 100%; max-width: 100%; }
+	&__content > * + * { margin-block-start: var(--space-md); }
+	&__content > :is(h2, h3, h4) { margin-block-start: var(--space-xl); }
+}
+
+.pagination,
+.pagination .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-xs); }
 .pagination { margin-block-start: var(--space-lg); }
 .pagination :where(.page-numbers, .post-page-numbers) {
-	display: inline-grid; min-width: 2.5rem; min-height: 2.5rem; place-items: center;
-	padding: 0.35rem 0.7rem; border: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color)); border-radius: var(--radius-sm);
-	color: var(--text-color); text-decoration: none;
+	display: inline-grid;
+	min-width: 2.5rem;
+	min-height: 2.5rem;
+	place-items: center;
+	padding: 0.35rem 0.7rem;
+	border: var(--line);
+	border-radius: var(--radius-sm);
+	color: var(--text-color);
+	text-decoration: none;
 }
-.pagination .current { background: var(--accent-color); color: var(--background-color); }
+.pagination .current { background: var(--accent-color); color: var(--on-accent-color); }
+
 .comments {
 	width: min(100%, calc(var(--content-width) + 2 * var(--page-padding)));
-	padding: var(--space-xl) var(--page-padding); margin-inline: auto; border-block-start: 1px solid color-mix(in srgb, var(--text-color) 20%, var(--background-color));
+	padding: var(--space-xl) var(--page-padding);
+	margin-inline: auto;
+	border-block-start: var(--line);
+
+	&__body { margin-block-start: var(--space-lg); }
+	&__list { display: grid; padding: 0; gap: var(--space-md); list-style: none; }
+	&__list .children { padding-inline-start: var(--space-sm); margin-block-start: var(--space-md); }
 }
-.comments__body, .comment-respond { margin-block-start: var(--space-lg); }
-.comments__list { display: grid; padding: 0; gap: var(--space-md); list-style: none; }
-.comments__list .children { padding-inline-start: var(--space-sm); margin-block-start: var(--space-md); }
-.comment-body > * + *, .comment-form > * + * { margin-block-start: var(--space-sm); }
+.comment-respond { margin-block-start: var(--space-lg); }
+.comment-body > * + *,
+.comment-form > * + * { margin-block-start: var(--space-sm); }
 .comment-form-cookies-consent label { display: inline; }
 .comment-author .avatar { display: inline-block; vertical-align: middle; border-radius: 50%; }
 .comment-metadata { color: var(--secondary-text-color); font-size: var(--font-size-sm); }

@@ -1,16 +1,57 @@
-a.button, button.button, .wp-block-button .wp-block-button__link,
-:where(button, input[type="submit"], input[type="reset"]) {
-	display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;gap:var(--button-icon-gap,8px);min-width:min(var(--button-min-width),100%);max-width:100%;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box;padding:var(--button-padding-top) min(var(--button-padding-right),10vw) var(--button-padding-bottom) min(var(--button-padding-left),10vw);text-transform:var(--button-text-transform);border:var(--button-border-width,1px) solid var(--accent-color);border-radius:var(--button-radius,var(--radius-sm));background:var(--accent-color);color:var(--on-accent-color);font-family:var(--button-font-family);font-size:var(--button-font-size,var(--font-size-base));font-weight:var(--button-weight,700);line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:background-color var(--button-transition,var(--transition-base)),color var(--button-transition,var(--transition-base)),border-color var(--button-transition,var(--transition-base)),transform var(--button-transition,var(--transition-base));
-}
-a.button:hover,button.button:hover,.wp-block-button .wp-block-button__link:hover,:where(button,input[type="submit"]):hover{border-color:var(--secondary-accent-color);background:var(--secondary-accent-color);color:var(--on-accent-color)}
-:is(a,button).button{&--secondary{border-color:var(--secondary-accent-color);background:var(--secondary-accent-color);color:var(--on-accent-color)}&--secondary:hover{border-color:var(--accent-color);background:var(--accent-color);color:var(--on-accent-color)}&--outline{border-color:var(--accent-color);background:transparent;color:var(--accent-color)}&--outline:hover{border-color:var(--accent-color);background:var(--accent-color);color:var(--on-accent-color)}&--text{padding-inline:0;border-color:transparent;background:transparent;color:var(--accent-color)}&--text:hover{border-color:transparent;background:transparent;color:var(--secondary-accent-color);text-decoration:underline}&--small{min-height:2.25rem;padding:.4rem .8rem;font-size:var(--font-size-sm)}&--large{min-height:3.25rem;padding:.875rem 1.5rem;font-size:var(--font-size-lg)}}
-.buttons--uppercase :is(.button,.wp-block-button__link,button,input[type="submit"]){text-transform:uppercase;letter-spacing:.04em}:where(button,input):disabled,.button[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
-@media(max-width:39.99rem){.buttons--full-mobile :is(.button,.wp-block-button,.wp-block-button__link){width:100%}}@media(prefers-reduced-motion:reduce){a.button,button.button,.wp-block-button .wp-block-button__link{transition:none}}
+// Core buttons (.wp-element-button) are styled in theme.json → styles.elements.button.
+// This mirrors that look for theme markup (.button) and plain form buttons.
+.button,
+:where(input[type="submit"], input[type="reset"]) {
+	display: inline-flex;
+	min-height: 2.75rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	max-width: 100%;
+	padding: 0.625rem 1.25rem;
+	border: 1px solid var(--accent-color);
+	border-radius: var(--radius-sm);
+	background: var(--accent-color);
+	color: var(--on-accent-color);
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color var(--transition), border-color var(--transition), color var(--transition);
 
-:is(a,button).button--secondary{background:transparent;border-color:var(--accent-color);color:var(--accent-color)}
-:is(a,button).button--secondary:hover{background:var(--accent-color);color:var(--on-accent-color)}
-:is(a,button).button--text{padding:0;min-width:0;min-height:0;border:0;text-transform:none;background:transparent;gap:.5em}
-:is(a,button).button--text::after{content:"→";}
-:is(a,button).button:active,.wp-block-button__link:active{transform:translateY(1px)}
-:is(.button,.wp-block-button__link):focus-visible{outline:3px solid var(--accent-color);outline-offset:4px}
-:is(button,input):disabled{opacity:.55;cursor:not-allowed}
+	&:hover {
+		border-color: var(--secondary-accent-color);
+		background: var(--secondary-accent-color);
+		color: var(--on-accent-color);
+	}
+
+	&:active { transform: translateY(1px); }
+	&:focus-visible { outline-offset: 4px; }
+}
+
+.button--outline,
+.is-style-outline > .wp-block-button__link {
+	padding: 0.625rem 1.25rem;
+	background: transparent;
+	color: var(--accent-color);
+
+	&:hover { border-color: var(--accent-color); background: var(--accent-color); color: var(--on-accent-color); }
+}
+
+// On a dark Group (own text color) outline buttons follow that color.
+:where(.has-text-color) .is-style-outline > .wp-block-button__link:not(:hover) { border-color: currentcolor; color: inherit; }
+
+.button--text {
+	min-height: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--accent-color);
+
+	&::after { content: "→"; }
+	&:hover { background: transparent; color: var(--secondary-accent-color); text-decoration: underline; }
+}
+
+:where(button, input):disabled,
+.button[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }

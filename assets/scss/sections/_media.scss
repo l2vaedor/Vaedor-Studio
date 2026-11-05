@@ -1,9 +1,0 @@
-.section--media .section__body { display: grid; gap: var(--space-xl); }
-.section--vertical-start .section__body { align-items: start; }
-.section--vertical-center .section__body { align-items: center; }
-.section--vertical-end .section__body { align-items: end; }
-@media (min-width: 48rem) {
-	.section--media .section__body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.section--media-position-left .section__media { grid-area: 1 / 1; }
-	.section--media-position-left .section__content { grid-area: 1 / 2; }
-}
