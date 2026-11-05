@@ -1,0 +1,1 @@
+.vaedor-customize-range__inputs{display:grid;grid-template-columns:minmax(0,1fr) 72px auto;gap:8px;align-items:center}.vaedor-customize-range__inputs input[type=range]{width:100%}.vaedor-customize-range__inputs input[type=number]{width:72px}.vaedor-customize-reset{margin-top:12px}.vaedor-customize-reset:focus-visible{outline:2px solid #2271b1;outline-offset:2px}

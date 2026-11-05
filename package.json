@@ -1,0 +1,12 @@
+{
+  "name": "vaedor-base",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "build": "sass --style=compressed --no-source-map assets/scss/main.scss:assets/css/main.min.css assets/scss/editor.scss:assets/css/editor.min.css",
+    "watch": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "sass": "1.104.1"
+  }
+}

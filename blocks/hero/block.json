@@ -1,0 +1,88 @@
+{
+  "apiVersion": 3,
+  "name": "vaedor/hero",
+  "title": "Vaedor Hero",
+  "category": "vaedor-base",
+  "icon": "cover-image",
+  "description": "Hero секция с директно редактиране и глобални defaults.",
+  "textdomain": "vaedor-theme",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Vaedor Base"
+    },
+    "title": {
+      "type": "string",
+      "default": "Ясно послание за вашия бизнес"
+    },
+    "description": {
+      "type": "string",
+      "default": "Представете накратко как помагате на клиентите си."
+    },
+    "supporting": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryText": {
+      "type": "string",
+      "default": "Свържете се с нас"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryText": {
+      "type": "string",
+      "default": "Научете повече"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "headingLevel": {
+      "type": "number",
+      "default": 1
+    },
+    "layout": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "ratio": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "size": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "background": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "media_ratio": {
+      "type": "string",
+      "default": "inherit"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": false
+  },
+  "editorScript": "vaedor-hero-editor"
+}
